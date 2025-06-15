@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        
+        // Add flat directory repository for local AAR files
+        flatDir {
+            dirs 'app/libs'
+        }
+    }
+}
+
+rootProject.name = "Alchemix"
+include ':app'

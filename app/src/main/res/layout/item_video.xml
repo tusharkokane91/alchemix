@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Thumbnail -->
+        <ImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:scaleType="centerCrop"
+            android:src="@android:drawable/ic_media_play"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/play" />
+
+        <!-- Play Button -->
+        <ImageButton
+            android:id="@+id/btnPlay"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_media_play"
+            app:layout_constraintStart_toStartOf="@id/thumbnail"
+            app:layout_constraintTop_toTopOf="@id/thumbnail"
+            app:layout_constraintEnd_toEndOf="@id/thumbnail"
+            app:layout_constraintBottom_toBottomOf="@id/thumbnail"
+            android:contentDescription="@string/play"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:id="@+id/actionButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="8dp">
+
+            <!-- Delete Button -->
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_delete"
+                android:contentDescription="@string/delete"
+                app:tint="@android:color/holo_red_dark" />
+        </LinearLayout>
+
+        <!-- Video Name -->
+        <TextView
+            android:id="@+id/videoName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/thumbnail"
+            app:layout_constraintEnd_toStartOf="@id/actionButtons"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            tools:text="Video File Name.mp4" />
+
+        <!-- Original Size -->
+        <ImageView
+            android:id="@+id/iconOriginal"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@android:drawable/ic_menu_upload"
+            android:background="#33FF0000"
+            app:tint="?android:attr/textColorSecondary"
+            app:layout_constraintStart_toStartOf="@id/videoName"
+            app:layout_constraintTop_toBottomOf="@id/videoName"
+            android:layout_marginTop="8dp"
+            android:contentDescription="Original size"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/videoOriginalSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:background="#3300FF00"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/iconOriginal"
+            app:layout_constraintTop_toTopOf="@id/iconOriginal"
+            app:layout_constraintBottom_toTopOf="@+id/iconCompressed"
+            android:layout_marginStart="8dp"
+            android:visibility="visible"
+            tools:visibility="visible"
+            tools:text="Original: 25.4 MB" />
+
+        <!-- Compressed Size -->
+        <ImageView
+            android:id="@+id/iconCompressed"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@android:drawable/ic_menu_save"
+            app:tint="?android:attr/colorAccent"
+            app:layout_constraintStart_toStartOf="@id/iconOriginal"
+            app:layout_constraintTop_toBottomOf="@id/videoOriginalSize"
+            android:layout_marginTop="4dp"
+            android:contentDescription="Compressed size" />
+
+        <TextView
+            android:id="@+id/videoSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="?android:attr/colorAccent"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/iconCompressed"
+            app:layout_constraintTop_toTopOf="@id/iconCompressed"
+            app:layout_constraintBottom_toBottomOf="@id/iconCompressed"
+            android:layout_marginStart="8dp"
+            tools:text="Compressed: 5.2 MB" />
+
+        <!-- Date -->
+        <TextView
+            android:id="@+id/videoDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintStart_toStartOf="@id/videoName"
+            app:layout_constraintEnd_toEndOf="@id/videoName"
+            app:layout_constraintTop_toBottomOf="@id/iconCompressed"
+            android:layout_marginTop="8dp"
+            tools:text="Jun 15, 2023 14:30" />
+
+        <!-- Divider -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#22000000"
+            app:layout_constraintTop_toBottomOf="@id/videoDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
